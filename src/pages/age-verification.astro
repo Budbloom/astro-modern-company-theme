@@ -1,0 +1,112 @@
+---
+// src/pages/age-verification.astro
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Age Verification</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        /* Set background image properties */
+        background-image: url('/site-background-holder.jpg'); /*  Path relative to the 'public' directory */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Don't repeat the image */
+        font-family: sans-serif;
+      }
+      .container {
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        padding: 3.5rem;
+        border-radius: 30px;
+        box-shadow: 0 4px 50px rgba(0, 0, 0, 0.1);
+        width: 40%;
+        min-width: 450px;
+      }
+      h1 {
+        font-size: 2.0rem; /* Increase font size for heading */
+        font-weight: bold; /* Make heading bold */
+        margin-bottom: 1.5rem;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem; /* Add space between buttons */
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+      }
+      .button-container div {
+        flex: 1 1 45%; /* Allow buttons to take up 45% of the container width */
+        min-width: 150px; /* Minimum width for buttons */
+      }
+      button {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem; /* Increase font size for buttons */
+        font-weight: bold; /* Make button text bold */
+        cursor: pointer;
+        border: none;
+        border-radius: 6px;
+        background-color: #007BFF;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+      }
+      .small-text {
+        font-size: 0.875rem; /* Smaller font size for additional text */
+        color: #555; /* Gray color for additional text */
+        margin-top: 0.25rem;
+      }
+      @media (max-width: 600px) {
+        .button-container {
+          flex-direction: column; /* Stack buttons vertically on small screens */
+        }
+        .button-container div {
+          flex: 1 1 100%; /* Buttons take full width on small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Are you over 21 years of age?</h1>
+      <div class="button-container">
+        <div>
+          <button id="yes">Yes</button>
+          <p class="small-text">Yes, I'm at least 21.</p>
+        </div>
+        <div>
+          <button id="no">No</button>
+          <p class="small-text">No, I'm under 21.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const yesButton = document.getElementById('yes');
+      const noButton = document.getElementById('no');
+
+      yesButton?.addEventListener('click', () => { // Use optional chaining
+        localStorage.setItem('ageVerified', 'true');
+        window.location.href = '/';
+      });
+
+      noButton?.addEventListener('click', () => { // Use optional chaining
+        alert("Sorry, you must be 21 years or older to access this content.");
+        // Optional: Redirect to a different page
+        // window.location.href = '/under-21';
+      });
+    </script>
+  </body>
+</html>
