@@ -2,8 +2,8 @@
 // src/components/Header.astro
 import { Image } from 'astro:assets';
 import logoImg from '../assets/logo.png';
+import OrderButton from './OrderButton.astro'; // Import your existing OrderButton
 
-// No navItems needed anymore
 ---
 
 <header class="fixed w-full top-0 z-50 bg-white shadow-md">
@@ -18,10 +18,7 @@ import logoImg from '../assets/logo.png';
       />
       <span class="ml-2">Your Company</span>
     </a>
-    {/* Remove the entire <nav> element */}
-    <a href="/#" class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600 transition duration-150 ease-in-out">
-      Contact Us
-    </a>
+    <OrderButton href="/contact">Contact Us</OrderButton> {/* Use OrderButton */}
   </div>
 </header>
 
@@ -29,6 +26,6 @@ import logoImg from '../assets/logo.png';
 
 <style>
   .header-spacer {
-    height: 64px; /* Adjust to match your header's height */
+    height: 74px; /* Adjust to match header height + padding */
   }
 </style>

@@ -1,0 +1,95 @@
+{
+    "hero": {
+      "title": "The first daily care motivation platform",
+      "description": "Your Company uses behavioral science to help people create, establish, and maintain daily behaviors that improve their lives. Health plans see reduced utilization costs, substantial health outcomes, increased quality and Star Ratings.",
+      "orderButton": {
+        "href": "/order",
+        "text": "Order Online"
+      },
+      "learnMoreLink": {
+        "href": "/features",
+        "text": "Learn More"
+      },
+       "image": {
+        "src": "../assets/600x400.svg",
+        "alt": "Description of your image"
+      }
+    },
+    "features": [
+      {
+        "title": "Hard-to-reach members",
+        "description": "Your Company engages members that traditional outreach strategies fail to reach.",
+        "image": {
+          "src": "../assets/600x400.svg",
+          "alt": "Description of feature image 1"
+        }
+      },
+      {
+        "title": "Complex conditions",
+        "description": "Your Company motivates members to take control of health conditions, ranging from diabetes to kidney disease.",
+        "image": {
+          "src": "../assets/600x400.svg",
+          "alt": "Description of feature image 2"
+        }
+      },
+      {
+        "title": "Daily engagement",
+        "description": "Your Company establishes daily habits to reinforce healthy behaviors between visits.",
+         "image": {
+          "src": "../assets/600x400.svg",
+          "alt": "Description of feature image 3"
+        }
+      }
+    ],
+     "impact": {
+      "image": {
+        "src": "../assets/600x400.svg",
+        "alt": "Grandmother and granddaughter laughing together while playing on the grass"
+      },
+      "title": "Healthier behaviors at population-scale",
+      "description": "Your Company gives hard-to-reach and complex populations a motivating and rewarding experience daily to improve health, cost, and quality outcomes. Our programs break through the noise, engaging members that traditional strategies have failed to reach."
+    },
+    "testimonials": [
+      {
+        "quote": "We securely sent our database of hard-to-reach patients with all their relevant conditions, and the number of patients we wanted to enroll. This platform did all the heavy lifting, including patient outreach and activation.",
+        "author": "Dr. Brian Hodgkins"
+      },
+      {
+        "quote": "Being able to offer a program that is so engaging and motivating to our members is a game changer. We have seen significant improvements in our members' health outcomes and quality of life.",
+        "author": "Jill Feldman"
+      },
+      {
+        "quote": "After starting our members on this platform, we've seen significant decreases in utilization and improved outcomes. The program more than paid for itself.",
+        "author": "Ian Straayer"
+      },
+      {
+        "quote": "Seeing more than 90% of our members engage with this platform daily is a testament to the program's effectiveness. We've seen significant improvements in our members' health outcomes and quality of life.",
+        "author": "Renee Kieffer"
+      },
+      {
+        "quote": "Placeholder testimonial. Add a real testimonial here later.",
+        "author": "Placeholder Author 1"
+      },
+      {
+        "quote": "Placeholder testimonial. Add a real testimonial here later.",
+        "author": "Placeholder Author 2"
+      }
+    ],
+     "roi": {
+      "title": "ROI is guaranteed",
+      "description1": "We only get paid when you see care plan adherence.",
+      "description2": "Your Company's partners have given over $15,000,000 in rewards back to their members for daily healthy behaviors.",
+       "orderButton": {
+        "href": "/order",
+        "text": "Order Online"
+      },
+      "learnMoreLink": {
+        "href": "/features",
+        "text": "Learn More"
+      }
+    },
+     "testimonialsBlurb": {
+      "title": "What Our Customers Say",
+      "description": "Our platform consistently delivers exceptional results, driving significant improvements in health outcomes, cost reduction, and member satisfaction. See what our partners have to say."
+    }
+  }

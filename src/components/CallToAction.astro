@@ -1,4 +1,7 @@
 ---
+//  (Assuming this is in a component, e.g., src/components/RoiSection.astro)
+import OrderButton from './OrderButton.astro'
+import LearnMoreLink from './LearnMoreLink.astro'
 ---
 
 <section class="bg-green-600 py-20 relative overflow-hidden">
@@ -16,7 +19,7 @@
       ></path>
     </svg>
   </div>
-  
+
   <div class="container mx-auto px-4 relative z-10">
     <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto text-center">
       <h2 class="text-5xl font-serif font-bold text-green-600 mb-16">
@@ -25,9 +28,13 @@
       <p class="text-2xl font-serif text-gray-700 mb-12">
         We only get paid when you see care plan adherence.
       </p>
-      <p class="text-2xl font-serif text-gray-700 mb-4">
+      <p class="text-2xl font-serif text-gray-700 mb-8">
         Your Company's partners have given over $15,000,000 in rewards back to their members for daily healthy behaviors.
       </p>
+      <div class="flex items-center justify-center space-x-4"> {/* Added justify-center */}
+        <OrderButton href="/order">Order Online</OrderButton>
+        <LearnMoreLink href="/features">Learn More</LearnMoreLink>
+      </div>
     </div>
   </div>
 </section>
