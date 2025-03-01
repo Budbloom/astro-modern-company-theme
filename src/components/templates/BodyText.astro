@@ -1,21 +1,37 @@
 ---
+// src/components/templates/BodyText.astro
 interface Props {
   text: string;
   size?: 'small' | 'medium' | 'large';
   color?: string;
-  className?: string;
+  font?: 'sans' | 'serif' | 'mono';
+  margin?: 'none' | 'small' | 'medium' | 'large' | string;
+  class?: string;
 }
 
-const { text, size = 'medium', color = 'text-black', className = '' } = Astro.props;
+const { text, size = 'medium', color = 'text-gray-700', font = 'sans', margin = 'medium', class: extraClasses = '' } = Astro.props;
 
 const sizeClasses = {
-  small: 'text-sm',
-  medium: 'text-base',
-  large: 'text-xl',
+  small: 'text-sm md:text-base',
+  medium: 'text-base md:text-lg',
+  large: 'text-lg md:text-xl',
 };
+
+const fontClasses = {
+    sans: 'font-sans',
+    serif: 'font-serif',
+    mono: 'font-mono',
+}
+
+const marginClasses = {
+  none: '',
+  small: 'mb-2',
+  medium: 'mb-4',
+  large: 'mb-8',
+};
+
+const combinedClasses = `${sizeClasses[size]} ${color} ${fontClasses[font]} ${marginClasses[margin as keyof typeof marginClasses] || margin} leading-[28px] md:leading-[32px] lg:leading-[36px] ${extraClasses}`;
+
 ---
 
-<p class={`font-sans mb-8 leading-relaxed ${sizeClasses[size]} ${color} ${className}`}>
-  {text}
-</p>
-
+<p class={combinedClasses} set:html={text} />

@@ -50,7 +50,7 @@ const { title, description, features, orderButton, learnMoreLink } = calloutRigh
 
           <HeaderText text={title} color="text-gray-900" />
 
-          <BodyText text={description} size="large" />
+          <BodyText text={description}/>
           <div class="flex items-center space-x-4">
               {orderButton && (<OrderButton />)}
               {learnMoreLink && (<LearnMoreLink href={learnMoreLink?.href || '#'}>{learnMoreLink?.text}</LearnMoreLink>)}

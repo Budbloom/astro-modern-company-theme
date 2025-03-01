@@ -32,14 +32,14 @@ const { title, description, orderButton, learnMoreLink } = heroData || {};
 
 ---
 
-<section class="bg-white py-20">
-  <div class="container mx-auto px-4">
+<section class="bg-white pt-14">
+  <div class="container mx-auto px-6 py-8 sm:py-14 lg:px-8 2xl:px-0">
     <div class="flex flex-col lg:flex-row items-center">
       <div class="lg:w-1/2 lg:pr-12">
-        <h1 class="text-5xl lg:text-6xl font-sans font-bold text-gray-900 mb-6">
+        <h1 class="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-gray-900 mb-6">
           {title}
         </h1>
-        <BodyText text={description} size="large" />
+        <BodyText text={description}/>
         <div class="flex items-center space-x-4">
           <OrderButton />
           <LearnMoreLink href={learnMoreLink?.href}>{learnMoreLink?.text}</LearnMoreLink>
@@ -50,7 +50,7 @@ const { title, description, orderButton, learnMoreLink } = heroData || {};
           <Image
             src={image.url()}
             alt={heroData.image?.alt || ''}
-            class="rounded-lg shadow-xl"
+            class="rounded-lg shadow-xl w-full"
             width={600}
             height={400}
           />
