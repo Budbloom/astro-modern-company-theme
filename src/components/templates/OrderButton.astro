@@ -1,20 +1,14 @@
 ---
 // src/components/OrderButton.astro
 
-const { href } = Astro.props;
-const ctaText = "Order Online";
+const { className } = Astro.props;
+const href = "/"; // Default href
+const text = "Order Now"; // Default text
 ---
 
 <a
   href= {href}
-  class:list={[
-    'bg-primary-500',
-    'hover:bg-primary-600',
-    'text-white',
-    'font-normal',
-    'py-3',
-    'px-7',
-    'rounded',
-    'duration-100',
-  ]}
-><slot/></a>
+  class={`bg-primary-500 hover:bg-primary-600 text-white font-normal py-3 px-7 rounded duration-100 ${className}`}
+>
+  {text}
+</a>

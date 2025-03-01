@@ -41,7 +41,7 @@ const { title, description, orderButton, learnMoreLink } = heroData || {};
         </h1>
         <BodyText text={description} size="large" />
         <div class="flex items-center space-x-4">
-          <OrderButton href={orderButton?.href}>{orderButton?.text}</OrderButton>
+          <OrderButton />
           <LearnMoreLink href={learnMoreLink?.href}>{learnMoreLink?.text}</LearnMoreLink>
         </div>
       </div>

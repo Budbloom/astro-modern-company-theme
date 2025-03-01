@@ -13,5 +13,5 @@ import callToAction from "./callToAction";
 import orderButton from "./orderButton";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [authorType, blockContentType, categoryType, postType, hero, callOutWithImageLeft, callOutWithImageRight, testimonial, testimonialsSection, callToAction], // Add the new schema
+  types: [authorType, blockContentType, categoryType, postType, hero, callOutWithImageLeft, callOutWithImageRight, testimonial, testimonialsSection, callToAction, orderButton], // Add the new schema
 };

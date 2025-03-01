@@ -45,7 +45,7 @@ const { title, description1, description2, orderButton, learnMoreLink } = callTo
         {description2}
       </p>
       <div class="flex items-center justify-center space-x-4">
-        <OrderButton href={orderButton?.href || ''}>{orderButton?.text || ''}</OrderButton>
+        <OrderButton />
         <LearnMoreLink href={learnMoreLink?.href || ''}>{learnMoreLink?.text || ''}</LearnMoreLink>
       </div>
     </div>
