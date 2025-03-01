@@ -3,48 +3,16 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import CallOutWithImageLeft from '../components/CallOutWithImageLeft.astro';
-import CallOutWithImageRightSide from '../components/CallOutWithImageRight.astro';
+import CallOutWithImageRight from '../components/CallOutWithImageRight.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Testimonials from '../components/Testimonials.astro';
-import content from '../data/content.json'; // Import the data
+// No need to import content.json anymore!
 ---
 
 <Layout title="Better outcomes with behavioral economics">
-  <Hero
-    title={content.hero.title}
-    description={content.hero.description}
-    orderButtonHref={content.hero.orderButton.href}
-    orderButtonText={content.hero.orderButton.text}
-    learnMoreHref={content.hero.learnMoreLink.href}
-    learnMoreText={content.hero.learnMoreLink.text}
-    imageSrc={content.hero.image.src}
-    imageAlt={content.hero.image.alt}
-  />
-  <CallOutWithImageLeft
-    title={content.callOutWithImageLeft.title}
-    description={content.callOutWithImageLeft.description}
-    imageSrc={content.callOutWithImageLeft.image.src}
-    imageAlt={content.callOutWithImageLeft.image.alt}
-  />
-  <Testimonials
-    title={content.testimonials.title}
-    description={content.testimonials.description}
-    testimonials={content.testimonials.items}
-  />
-  <CallOutWithImageRightSide
-    title={content.callOutWithImageRightSide.title}
-    description={content.callOutWithImageRightSide.description}
-    imageSrc={content.callOutWithImageRightSide.image.src}
-    imageAlt={content.callOutWithImageRightSide.image.alt}
-    features={content.callOutWithImageRightSide.features}
-  />
-  <CallToAction
-    title={content.callToAction.title}
-    description1={content.callToAction.description1}
-    description2={content.callToAction.description2}
-    orderButtonHref={content.callToAction.orderButton.href}
-    orderButtonText={content.callToAction.orderButton.text}
-    learnMoreHref={content.callToAction.learnMoreLink.href}
-    learnMoreText={content.callToAction.learnMoreLink.text}
-  />
+  <Hero />
+  <CallOutWithImageLeft />
+  <Testimonials />
+  <CallOutWithImageRight />
+  <CallToAction />
 </Layout>
