@@ -1,51 +1,40 @@
 ---
 // src/components/Testimonials.astro
 import { Image } from 'astro:assets';
-import logoImg from '../assets/logo.png'; // Import your logo image
+import { client } from '../sanity/client';
+import logoImg from '../assets/logo.png'; // Import the logo directly
+// No need for imageUrlBuilder or urlFor in this case
 
-const testimonials = [
-  {
-    quote: "We securely sent our database of hard-to-reach patients with all their relevant conditions, and the number of patients we wanted to enroll.  This platform did all the heavy lifting, including patient outreach and activation.",
-    author: "Dr. Brian Hodgkins",
-  },
-  {
-    quote: "Being able to offer a program that is so engaging and motivating to our members is a game changer.  We have seen significant improvements in our members' health outcomes and quality of life.",
-    author: "Jill Feldman",
-  },
-  {
-    quote: "After starting our members on this platform, we've seen significant decreases in utilization and improved outcomes.  The program more than paid for itself.",
-    author: "Ian Straayer",
-  },
-  {
-    quote: "Seeing more than 90% of our members engage with this platform daily is a testament to the program's effectiveness. We've seen significant improvements in our members' health outcomes and quality of life.",
-    author: "Renee Kieffer",
-  },
-  {
-    quote: "Placeholder testimonial. Add a real testimonial here later.",
-    author: "Placeholder Author 1",
-  },
-  {
-    quote: "Placeholder testimonial. Add a real testimonial here later.",
-    author: "Placeholder Author 2",
-  },
-];
+interface Testimonial {
+  quote: string;
+  author: string;
+}
+
+interface TestimonialsSection {
+  title: string;
+  description: string;
+  testimonials: Testimonial[];
+}
+
+const [testimonialsData] = await client.fetch<TestimonialsSection[]>(`*[_type == "testimonialsSection"]`);
+const { title, description, testimonials } = testimonialsData || {};
+
 ---
 
 <section class="bg-gray-100 py-20">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-serif font-bold text-center mb-4">What Our Customers Say</h2>
-    <p class="text-center text-gray-700 text-lg mb-12 max-w-3xl mx-auto"> {/* Added max-w and mx-auto */}
-      Our platform consistently delivers exceptional results, driving significant improvements in health outcomes,
-      cost reduction, and member satisfaction.  See what our partners have to say.
+    <h2 class="text-3xl font-serif font-bold text-center mb-4">{title}</h2>
+    <p class="text-center text-gray-700 text-lg mb-12 max-w-3xl mx-auto">
+      {description}
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {testimonials.map((testimonial) => (
+      {testimonials && testimonials.map((testimonial) => (
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col">
           <p class="text-gray-600 italic mb-4 flex-grow">{testimonial.quote}</p>
           <div class="flex items-center">
             <Image
-              src={logoImg}
-              alt="Company Logo"
+              src={logoImg} 
+              alt="Company Logo"  
               class="w-12 h-12 rounded-lg mr-4"
               width={48}
               height={48}

@@ -1,32 +1,59 @@
 ---
+// src/components/CallOutWithImageLeft.astro
 import { Image } from 'astro:assets';
-import impactImage from '../assets/600x400.svg';
 import OrderButton from './OrderButton.astro';
 import LearnMoreLink from './LearnMoreLink.astro';
+import { client } from '../sanity/client'; // Import Sanity client
+import imageUrlBuilder from '@sanity/image-url';
+import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+interface CallOutData {
+  title: string;
+  description: string;
+  image: { asset: { _ref: string }; alt: string } | null;
+  orderButton?: { text?: string; href?: string };
+  learnMoreLink?: { text?: string; href?: string };
+}
+const [callOutData] = await client.fetch<CallOutData[]>(`*[_type == "callOutWithImageLeft"]`);
+
+  let image: ImageUrlBuilder | undefined;
+
+  if (callOutData && callOutData.image && callOutData.image.asset) {
+    image = builder.image(callOutData.image).width(600).height(400).fit('max').auto('format');
+  }
+  const { title, description, orderButton, learnMoreLink } = callOutData || {};
 ---
 
 <section class="bg-white py-20">
   <div class="container mx-auto px-4">
-    <div class="flex flex-col-reverse md:flex-row items-center gap-12">  {/* Changed line */}
+    <div class="flex flex-col-reverse md:flex-row items-center gap-12">
       <div class="md:w-1/2">
+      {image && (
         <Image
-          src={impactImage}
-          alt="Grandmother and granddaughter laughing together while playing on the grass"
+          src={image.url()}
+          alt={callOutData.image?.alt || ''}
           class="rounded-lg shadow-xl w-full"
           width={600}
           height={400}
         />
+      )}
       </div>
       <div class="md:w-1/2">
         <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
-          Healthier behaviors at population-scale
+          {title}
         </h2>
         <p class="text-xl text-gray-700 mb-8">
-          Your Company gives hard-to-reach and complex populations a motivating and rewarding experience daily to improve health, cost, and quality outcomes. Our programs break through the noise, engaging members that traditional strategies have failed to reach.
+          {description}
         </p>
-        <div class="flex items-center space-x-4"> {/* Wrap in a div, add space-x */}
-          <OrderButton href="/order">Order Online</OrderButton>
-          <LearnMoreLink href="/features">Learn More</LearnMoreLink>
+         <div class="flex items-center space-x-4">
+          {orderButton && (<OrderButton href={orderButton?.href || ''}>{orderButton?.text || ''}</OrderButton>)}
+          {learnMoreLink && (<LearnMoreLink href={learnMoreLink?.href || '#'}>{learnMoreLink?.text || ''}</LearnMoreLink>)}
         </div>
       </div>
     </div>

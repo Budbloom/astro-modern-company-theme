@@ -7,12 +7,13 @@ import sanity from '@sanity/astro';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://example.budbloom.co',
   integrations: [tailwind(), react(), 
     sanity({
     projectId: 'u3xeuigh',
     dataset: 'production',
-    // Set useCdn to false if you're building statically.
-    useCdn: false,
+    apiVersion: '2024-02-28',
+    useCdn: true,
     studioBasePath: '/studio' // If you want to access the Studio on a route
   })],
   assets: {

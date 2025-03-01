@@ -3,10 +3,9 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import CallOutWithImageLeft from '../components/CallOutWithImageLeft.astro';
-import CallOutWithImageRightSide from '../components/CallOutWithImageRightSide.astro';
+import CallOutWithImageRightSide from '../components/CallOutWithImageRight.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Testimonials from '../components/Testimonials.astro';
-import TestImageSection from '../components/TestImageSection.astro';
 import content from '../data/content.json'; // Import the data
 ---
 
@@ -48,5 +47,4 @@ import content from '../data/content.json'; // Import the data
     learnMoreHref={content.callToAction.learnMoreLink.href}
     learnMoreText={content.callToAction.learnMoreLink.text}
   />
-  <TestImageSection />
 </Layout>
