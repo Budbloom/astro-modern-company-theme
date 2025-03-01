@@ -1,0 +1,20 @@
+---
+interface Props {
+  text: string;
+  size?: 'small' | 'medium' | 'large';
+  color?: string;
+  className?: string;
+}
+
+const { text, size = 'medium', color = 'text-black', className = '' } = Astro.props;
+
+const sizeClasses = {
+  small: 'text-sm',
+  medium: 'text-base',
+  large: 'text-xl',
+};
+---
+
+<p class={`font-sans mb-8 leading-relaxed ${sizeClasses[size]} ${color} ${className}`}>
+  {text}
+</p>

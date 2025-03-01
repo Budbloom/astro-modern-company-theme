@@ -10,6 +10,7 @@ import callOutWithImageRight from './callOutWithImageRight'; // Import
 import testimonial from './testimonial'; // Import
 import testimonialsSection from './testimonialsSection'; // Import 
 import callToAction from "./callToAction";
+import orderButton from "./orderButton";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [authorType, blockContentType, categoryType, postType, hero, callOutWithImageLeft, callOutWithImageRight, testimonial, testimonialsSection, callToAction], // Add the new schema

@@ -1,11 +1,13 @@
 ---
 // src/components/CallOutWithImageLeft.astro
 import { Image } from 'astro:assets';
-import OrderButton from './OrderButton.astro';
-import LearnMoreLink from './LearnMoreLink.astro';
+import OrderButton from './templates/OrderButton.astro';
+import LearnMoreLink from './templates/LearnMoreLink.astro';
 import { client } from '../sanity/client'; // Import Sanity client
 import imageUrlBuilder from '@sanity/image-url';
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder';
+import HeaderText from './templates/HeaderText.astro';
+import BodyText from './templates/BodyText.astro';
 
 const builder = imageUrlBuilder(client);
 
@@ -45,12 +47,15 @@ const [callOutData] = await client.fetch<CallOutData[]>(`*[_type == "callOutWith
       )}
       </div>
       <div class="md:w-1/2">
-        <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
+        <!-- <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
           {title}
-        </h2>
-        <p class="text-xl text-gray-700 mb-8">
+        </h2> -->
+        <!-- <HeaderText text={title}, size='large' /> -->
+        <HeaderText text={title} color="text-gray-900" />
+        <!-- <p class="text-xl text-gray-700 mb-8">
           {description}
-        </p>
+        </p> -->
+        <BodyText text={description} size="large" />
          <div class="flex items-center space-x-4">
           {orderButton && (<OrderButton href={orderButton?.href || ''}>{orderButton?.text || ''}</OrderButton>)}
           {learnMoreLink && (<LearnMoreLink href={learnMoreLink?.href || '#'}>{learnMoreLink?.text || ''}</LearnMoreLink>)}
