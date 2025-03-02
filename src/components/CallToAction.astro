@@ -3,6 +3,8 @@
 import OrderButton from './templates/OrderButton.astro';
 import LearnMoreLink from './templates/LearnMoreLink.astro';
 import { client } from '../sanity/client';
+import HeaderText from './templates/HeaderText.astro';
+import BodyText from './templates/BodyText.astro';
 
 interface CallToAction {
   title: string;
@@ -17,7 +19,7 @@ const { title, description1, description2, orderButton, learnMoreLink } = callTo
 
 ---
 
-<section class="bg-green-600 py-20 relative overflow-hidden">
+<section class="bg-primary py-20 relative overflow-hidden">
   <div class="absolute inset-0 z-0">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,21 +35,22 @@ const { title, description1, description2, orderButton, learnMoreLink } = callTo
     </svg>
   </div>
 
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto text-center">
-      <h2 class="text-5xl font-serif font-bold text-green-600 mb-16">
-        {title}
-      </h2>
-      <p class="text-2xl font-serif text-gray-700 mb-12">
-        {description1}
-      </p>
-      <p class="text-2xl font-serif text-gray-700 mb-4">
-        {description2}
-      </p>
-      <div class="flex items-center justify-center space-x-4">
-        <OrderButton />
-        <LearnMoreLink href={learnMoreLink?.href || ''}>{learnMoreLink?.text || ''}</LearnMoreLink>
+  <div class="container mx-auto sm:px-4 relative z-10">
+    {/* Key changes are within this div's classes */}
+    <div class="relative isolate overflow-hidden bg-white px-6 pt-16 pb-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 md:pb-24 lg:flex lg:justify-center lg:items-center lg:gap-x-20 lg:px-24 lg:pt-0 lg:pb-0">
+      <div class="mx-auto max-w-3xl text-center lg:mx-0 lg:flex-auto lg:py-32">
+          <HeaderText text={title} size="small" className='font-serif mb-1' />
+          <HeaderText text={title} size="large" />
+          <BodyText text={description1} size='small' />
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            {orderButton?.text && orderButton.href && (
+              <OrderButton href={orderButton.href}>{orderButton.text}</OrderButton>
+            )}
+            {learnMoreLink?.href && (
+              <LearnMoreLink href={learnMoreLink.href}>{learnMoreLink.text}</LearnMoreLink>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 </section>

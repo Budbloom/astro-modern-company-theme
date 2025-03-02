@@ -3,18 +3,20 @@ interface Props {
   text: string;
   size?: 'small' | 'medium' | 'large';
   color?: string;
+  margin?: string;
   className?: string;
 }
 
-const { text, size = 'medium', color = 'text-gray-900', className = '' } = Astro.props;
+const { text, size = 'medium', color = 'text-text', margin = "mb-6", className = '' } = Astro.props;
 
 const sizeClasses = {
+  tiny: 'text-xs',
   small: 'text-xl',
   medium: 'text-3xl',
   large: 'text-4xl',
 };
 ---
 
-<h2 class={`font-sans font-bold mb-6 ${sizeClasses[size]} ${color} ${className}`}>
+<h2 class={`font-sans font-bold ${sizeClasses[size]} ${color} ${className} ${margin}`}>
   {text}
 </h2>
